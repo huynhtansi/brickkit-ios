@@ -636,6 +636,7 @@ internal class BrickLayoutSection {
             oldFrame = nil
             oldOriginalFrame = nil
         }
+        brickAttributes.identifier = dataSource.identifier(for: indexPath.item, in: self)
 
         let height: CGFloat
 
@@ -684,7 +685,6 @@ internal class BrickLayoutSection {
     func createAttribute(at indexPath: NSIndexPath, with dataSource: BrickLayoutSectionDataSource) -> BrickLayoutAttributes {
         let brickAttributes = BrickLayoutAttributes(forCellWithIndexPath: indexPath)
 
-        brickAttributes.identifier = dataSource.identifier(for: indexPath.item, in: self)
         attributes[indexPath.item] = brickAttributes
         brickAttributes.isEstimateSize = dataSource.isEstimate(for: brickAttributes, in: self)
         return brickAttributes
